@@ -1,0 +1,71 @@
+
+
+AOP is a pattern used to modularize cross cutting features. So if there is a certain "thing" that applies to a significant part 
+in your code then you can use AOP to solve that problem. These "things" are called aspects.
+
+Advantages of Spring AOP
+AOP is non-invasive:
+Service or Domain classes get advice by the aspects (cross-cutting concerns) without adding Spring AOP related classes or interfaces into the service or domain classes.
+Allows the developers to concentrate on the business logic, instead of the cross-cutting concerns.
+2. AOP is implemented in pure Java:
+
+There is no need for a special compilation unit or special class loader
+3. It uses Spring’s IOC container for dependency injection:
+
+Aspects can be configured as normal spring beans.
+4. Like any other AOP framework, it weaves cross-cutting concerns into the classes, without making a call to the cross-cutting concerns from those classes.
+
+5. Centralizes or modularizes the cross-cutting concerns:
+
+Easy to maintain and make changes to the aspects.
+Changes only need to be made in one place.
+6. Provision to create aspects using schema-based (XML configuration) or @AspectJ annotation based style.
+
+7. Easy to configure.
+
+Disadvantages of Spring AOP
+1. A small difficulty is debugging the AOP framework-based application code.
+
+Since the business classes are advised after the scene with aspects.
+2. Since it uses proxy-based AOP, only method-level advising is supported; it does not support field-level interception
+
+So join-points can be at method level not at field level in a class.
+3. Only methods with public visibility will be advised:
+
+Methods with private, protected, or default visibility will not be advised.
+4. There's small runtime overhead, but its negotiable:
+
+The overhead is in nano-seconds.
+5. Aspects cannot advise other Aspects - it's not possible to have aspects as targets of advice from other aspects.
+
+Because once you mark one class as an aspect (either use XML or annotation), Spring excludes it from being auto-proxied.
+6. Local or internal method calls within an advised class don’t get intercepted by proxy, so the advice method of the aspect does not get fired or invoked.
+
+7. It is not for advising fine-grained objects (or domain objects)—it is best suitable for coarse-grained objects due to performance.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+An aspect represent the cross-cutting functionality name, remember just name only name.
+
+Join Points: A Join Point is a point in the execution of the application where an aspect can be plugged in. 
+This point could be a method being called, an exception being thrown, or even a field being modified.
+
+Advice is the implementation of Aspect.  An Advice provides the code for implementation of the service.
+
+cross-cutting functionalities means adding different types of services to the application at runtime automatically.
+examp:authentication,logging,transaction
+
+Around Advice is combination of both Before and After Advice.
+     While creating the business logic of the method the additional services are needed to be injected (which we saw already) at 
+     different places or points, we call such points as join points.At a join point a new services will be  added into the normal 
+     flow of a business method.
+     
+While executing the business method, the services are required at the following 3 places (generally), we call them as JoinPoints..
+
+Before business logic of the method starts
+After business logic of the method got completed
+If business logic throws an exception at run time
+
+
+
+
