@@ -3,6 +3,11 @@
 AOP is a pattern used to modularize cross cutting features. So if there is a certain "thing" that applies to a significant part 
 in your code then you can use AOP to solve that problem. These "things" are called aspects.
 
+Advise defines what needs to be apply.
+Joinpoint is where an Advice is apply.
+Pointcut is a combination of different Jointpoints.
+Aspect is applying an Advice at Pointcuts.
+
 Aspect = Point cut + Advice
 
 Advantages of Spring AOP
