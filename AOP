@@ -3,6 +3,8 @@
 AOP is a pattern used to modularize cross cutting features. So if there is a certain "thing" that applies to a significant part 
 in your code then you can use AOP to solve that problem. These "things" are called aspects.
 
+Aspect = Point cut + Advice
+
 Advantages of Spring AOP
 AOP is non-invasive:
 Service or Domain classes get advice by the aspects (cross-cutting concerns) without adding Spring AOP related classes or interfaces into the service or domain classes.
